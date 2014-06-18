@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+</head>
+<body>
+    
+<div class="layout">
+    <h1>Если бы на прошлой неделе вы <br>инвестировали в ПАММ счет успешного <br>управляющего</h1>
+
+    <div ng-app="calc" ng-controller="mainCtrl" class="calc">
+        <div class="calc-accounts">
+            <account-switcher></account-switcher>
+        </div>
+        <div class="calc-controls">
+            <input slider type="range" min="0" max="4000" value="1000">
+            <ul class="calc-result">
+                <li>
+                    <span class="label">Сегодня ваш депозит бы <br>составил</span>
+                    <span class="deposit-sum deposit-now"></span>
+                </li>
+                <li>
+                    <span class="label">За год при повторении <br>вклада, заработали бы</span>
+                    <span class="deposit-sum deposit-year"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- <i class="barchart"></i> -->
+
+<script type="text/javascript" src="build/js/main.js"></script>
+
+</body>
+</html>

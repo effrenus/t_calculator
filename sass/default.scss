@@ -1,0 +1,207 @@
+@import "libs/mixins";
+@import "variables";
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font: 1em/1.55 $font-family;
+    background-image: linear-gradient(top, #001c4b, #002050 11%, #0068b5 53%, #001c4b);
+}
+
+h1 {
+    margin-bottom: 25px;
+    font-weight: normal;
+    font-size: 1.7em;
+    line-height: 1.35;
+    color: #99ca3d;
+}
+
+.layout {
+    position: relative;
+    width: 610px;
+    margin: auto;
+    padding-top: 130px;
+    z-index: 2;
+}
+
+.calc {
+    position: relative;
+    padding: 20px 15px 30px;
+    background-color: rgba(0,0,0,.28);
+    border: 1px solid #0067b9;
+    border-radius: 15px;
+    &:after {
+        position: absolute;
+        content: "";
+        height: 0px;
+        border: 1px solid rgba(190, 120, 200, 0);
+        left: 40px; right: 40px;
+        bottom: -2px;
+        border-radius: 50%;
+        box-shadow: 0 5px 6px 5px rgba(0,0,0,0.35);
+        // transform: scale(0.9);
+        font-size: 0;
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        left: 180px; top: 0;
+        width: 65px;
+        height: 100%;
+        background: url(/images/ar-g.png) 50% 50% no-repeat;
+        background-size: cover;
+    }
+}
+
+.calc-accounts {
+    position: relative;
+    display: inline-block;
+    width: 210px;
+    padding-top: 30px;
+    color: #FFF;
+    font-size: 14px;
+    vertical-align: top;
+    &:before, &:after {
+        position: absolute;
+        left: 10px; top: 2px;
+        content: "№ счета";
+        color: #999;
+        font-style: italic;
+        font-size: 12px;
+    }
+    &:after {
+        left: 75px;
+        content: "Управляющий";
+    }
+    .account {
+        position: relative;
+        display: inline-block;
+        margin: 0 0 7px 5px;
+        padding: 0 5px 0 75px;
+        border-radius: 3px;
+        font-size: 0.9em;
+        &-active {
+            background-color: #66ccff;
+            color: #000;
+        }
+        .no {
+            position: absolute;
+            left: 5px; top: 3px;
+            border-bottom: 1px dashed #FFF;
+            cursor: pointer;
+            line-height: 1.1;
+        }
+        &-active .no {
+            border-width: 0;
+        }
+    }
+}
+
+.calc-controls {
+    display: inline-block;
+    width: 345px;
+    vertical-align: top;
+    color: #66ccff;
+    .rangeslider {
+        margin-bottom: 25px;
+    }
+}
+
+.calc-result {
+    line-height: 1.3;
+    li {
+        position: relative;
+        margin-bottom: 25px;
+        padding-left: 150px;
+        text-align: right;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .label {
+        position: absolute;
+        left: 0; top: 0;
+        font-size: 13px;
+        font-style: italic;
+        text-align: left;
+    }
+    .deposit-sum {
+        font-size: 2.1em;
+        color: #FFF;
+        font-weight: bold;
+        line-height: 1;
+    }
+}
+
+$slider-height: 6px;
+.rangeslider {
+    position: relative;
+    height: $slider-height;
+    margin-top: 40px;
+    border: 1px solid #99B5CA;
+    border-radius: 5px;
+    background-image: linear-gradient(top, #3f5866 0%, #a9b1bc 100%);
+    
+    &__handle {
+        position: absolute;
+        left: 0; top: -5px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        border: 2px solid #FFF;
+        cursor: pointer;
+        background-image: radial-gradient(circle, #2e90f2 0%, #1b6ebf 50%, #1461ac 100%);
+        &:after {
+            content: "";
+            position: absolute;
+            left: 13px; top: 5px;
+            width: 0;
+            height: $slider-height - 2px;
+            box-shadow: 2px 0 5px 2px rgba(0,0,0,0.6);
+        }
+        .pre-end &:after {
+            display: none;
+        }
+    }
+    &__fill {
+        position: absolute;
+        left: 0; top: 0;
+        height: $slider-height;
+        background-image: linear-gradient(top, #ffcf0d 0, #ffefae 2px, #ffc800 3px, #ff9f00 100%);
+        font-size: 0;
+    }
+    &__value {
+        position: absolute;
+        top: -40px; left: -10000px;
+        margin-left: -30px;
+        width: 70px;
+        padding: 2px 0 0;
+        background-image: linear-gradient(top, #FFF 0%, #c9c9c9 100%);
+        color: #000;
+        font-weight: bold;
+        text-align: center;
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: -8px; left: 32px;
+            @include arr(10, 8, #c9c9c9, b);
+        }
+    }
+}
+
+.barchart {
+    position: fixed;
+    top: 400px; left: 0; right: 0;
+    height: 250px;
+    background: url(/images/barchart.png) 50% 50% no-repeat;
+    background-size: contain;
+    z-index: 1;
+}
