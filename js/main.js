@@ -1,8 +1,10 @@
 var $ = window.jQuery = require('./jquery/dist/jquery.js'),
-    numeral = require('./numeral/numeral.js'),
-    candlestick = require('./candlestick/Candlestick.js');
+    numeral = require('./numeral/numeral.js');
+
 require('./rangeslider.js/dist/rangeslider.js');
 require('./angular/angular.js');
+
+require('./canvas.js');
 
 numeral.language('_en', {
     delimiters: {
@@ -16,7 +18,7 @@ numeral.language('_en', {
         trillion: 't'
     },
     ordinal : function (number) {
-        return number === 1 ? 'er' : 'ème';
+        return '';
     },
     currency: {
         symbol: '$'

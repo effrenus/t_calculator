@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     compass = require('gulp-compass'),
     autoprefixer = require('gulp-autoprefixer'),
-    connect = require('gulp-connect');
+    connect = require('gulp-connect'),
+    csso = require('gulp-csso');
 
 var paths = {
     js: 'js/*.js',
@@ -26,6 +27,7 @@ gulp.task('sass', function(){
             css: './css'
         }).on('error', gutil.beep))
         .pipe(autoprefixer(['last 2 versions']))
+        .pipe(csso())
         .pipe(gulp.dest('./css'))
         .pipe(connect.reload());
 });
