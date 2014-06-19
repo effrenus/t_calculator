@@ -150,6 +150,9 @@ $slider-height: 6px;
     border-radius: 5px;
     background-image: linear-gradient(top, #3f5866 0%, #a9b1bc 100%);
     
+    &:hover {
+        box-shadow: 0 0 2px #EEE;
+    }
     &__handle {
         position: absolute;
         left: 0; top: -5px;
@@ -197,18 +200,8 @@ $slider-height: 6px;
     }
 }
 
-.barchart {
-    position: fixed;
-    top: 400px; left: 0; right: 0;
-    height: 250px;
-    background: url(../images/barchart.png) 50% 50% no-repeat;
-    background-size: contain;
-    z-index: 1;
-}
-
 canvas {
     position: fixed;
-    top: 62%; left: 0;
-    // opacity: 0.2;
+    top: 440px; left: 0;
     z-index: 1;
 }
